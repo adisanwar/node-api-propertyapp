@@ -1,0 +1,26 @@
+Booking unit
+
+cluster : DPR T5
+tipe    : 24/60
+no spu  : 0553/spr.dpr/iii/2023
+cara bayar: KPR
+Marketing : Wahyu
+Total Harga : 168000000
+
+
+table_user
+
+username, password, email, refresh_token
+
+table
+
+table COSTUMER 
+
+nama, no_id, alamat, no_hp, email, jenis kelamin, pekerjaan, desk_pekerjaan, penghasilan, referal, marketing
+
+
+
+
+table unit
+
+proyek, cluster, type, unit, no_spu, cara_bayar, harga
