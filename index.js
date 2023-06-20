@@ -1,16 +1,19 @@
 import express from "express";
 import db from "./config/database.js";
-import Users from "./models/UserModels.js";
+import router from "./routes/index.js";
+// import Users from "./models/UserModels.js";
+
 
 const app = express();
 
 try {
     await db.authenticate();
     console.log ("database Connected ...");
-    await Users.sync();
+    // await Users.sync();
 } catch (error) {
     console.log(error);
 }
 
-
-app.listen(5000, () => console.log('server running at port 5000'))
+app.use(express.json);
+app.use(router);
+app.listen(3000, () => console.log('server running at port 3000'));

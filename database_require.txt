@@ -20,7 +20,7 @@ kartu bayar (Unit, tipe, nama, spu, no hp, sisa_bayar, harga_unit, sudah bayar, 
 
 
 tbl_user
-id_user, username, password, role, refresh_token
+id_user, username, password, email, role, refresh_token
 
 tbl_costumer 
 id_costumer, nama, no_id, alamat, provinsi, kota, no_hp, email, jenis kelamin, pekerjaan, desk_pekerjaan, gaji, npwp
