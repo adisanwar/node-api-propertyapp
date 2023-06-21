@@ -1,0 +1,25 @@
+GET http://localhost:4000/users
+
+###
+
+POST  http://localhost:4000/users
+Content-Type: application/json
+
+{
+    "name" : "adi",
+    "email" : "a@a.com", 
+    "password" : "123",
+    "confPassword" : "123"
+}
+
+###
+
+POST  http://localhost:4000/login
+Content-Type: application/json
+
+{
+    
+    "email" : "a@a.com", 
+    "password" : "123",
+   
+}
