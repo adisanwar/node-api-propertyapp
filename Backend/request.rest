@@ -1,25 +1,51 @@
 GET http://localhost:4000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsIm5hbWUiOiJqb25vIiwiZW1haWwiOiJhQGZhYWEuY29tIiwiaWF0IjoxNjg3NTA4MTM4LCJleHAiOjE2ODc1MDgxNTh9.390CI2RxU2eE4ghcXHc1r_RZSmddRYCltdWTw54wV94
 
 ###
 
-POST  http://localhost:4000/users
+GET http://localhost:4000/users/1
+
+###
+
+POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-    "name" : "adi",
-    "email" : "a@a.com", 
+    "name" : "ada",
+    "email" : "a@1.com", 
     "password" : "123",
     "confPassword" : "123"
 }
 
 ###
 
-POST  http://localhost:4000/login
+PATCH  http://localhost:4000/users/9
+Content-Type: application/json
+
+{
+    "name" : "add",
+    "email" : "a@a.com", 
+    "password" : "123",
+    "confPassword" : "123"
+}
+###
+
+POST http://localhost:4000/login
 Content-Type: application/json
 
 {
     
-    "email" : "a@a.com", 
-    "password" : "123",
+    "email" : "a@faaa.com", 
+    "password" : "123"
+    
+    
    
 }
+
+###
+
+POST http://localhost:4000/token
+
+###
+
+DELETE http://localhost:4000/users/
