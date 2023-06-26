@@ -1,20 +1,30 @@
-import express from "express";
+import express, { json } from "express";
 import db from "./config/Database.js";
 import router from "./routes/index.js";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
-dotenv.config();
+import { config } from "dotenv";
+
+config();
 const app = express();
 
-try {
+// Handle database connection and synchronization
+(async () => {
+  try {
     await db.authenticate();
-    console.log('Database Connected ...');
+    console.log('Database Connected...');
+    await sync();
+    console.log('Database synchronized...');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+    process.exit(1);
+  }
+})();
 
-} catch (error) {
-    console.log(error);
-
-}
 app.use(cookieParser());
-app.use(express.json());
+app.use(json());
 app.use(router);
-app.listen(4000, () => console.log('Server Running On Port 4000'));
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server running on Port ${port}`);
+});

@@ -1,9 +1,56 @@
 tbl_users
+user_id, id_karyawan[foreign key],  username,  password
+# npx sequelize-cli model:generate --name User --attributes username:string,password:string,id_karyawan:integer
 
 
 tbl_costumers
+id_costumers, nama, no_id, no_hp, email, alamat, npwp,  kota, provinsi  pekerjaan, deskripsi_kerja, gaji
+# npx sequelize-cli model:generate --name Costumer --attributes nama:string,no_ktp:integer,no_hp:integer,email:string,alamat:string,npwp:integer,kota:string,provinsi:string,pekerjaan:string,deskripsi_kerja:string,gaji:integer
+
+tbl_karyawan
+id_karyawan, nama_karyawan, email_karyawan, alamat_karyawan, no_hp_karyawan, bagian
+# npx sequelize-cli model:generate --name Karyawan --attributes nama_karyawan:string,email_karyawan:string,alamat_karyawan:string,no_hp:integer,bagian:string
+
+
+tbl_prospek
+id_prospek, id_karyawan[foreign key], id_siteplan[foreign key], id_costumer[foreign key], sumber_info, kontak_melalui, status_prospek, catatan, referal
+# npx sequelize-cli model:generate --name Prospek --attributes id_karyawan:integer,id_siteplan:integer,id_costumer:string,sumber_info:string,kontak_melalui:string,status_prospek:string,catatan:string,referal:string
 
 
 tbl_progress
+id_progress, id_prospek[foreign key], pondasi, dinding, plaster, atapbajaring, genteng, keramik, kusen, finishing
+# npx sequelize-cli model:generate --name Progress --attributes id_prospek:integer,pondasi:integer,dinding:integer,plaster:integer,atapbajaring:integer,genteng:integer,keramik:integer,kusen:integer,finishing:integer
+
+tbl_berkas
+id_berkas, id_prospek[foreign key], form, pasfoto, ktp, kartu_keluarga, npwp, npwp_siup, surat_nikah, aktif_kerja, skTidakAdaRumah, domisili, pph21, slipGaji, skPengangkatan, rekKoran, jamsostek
+# npx sequelize-cli model:generate --name KartuBayar --attributes id_prospek:integer,form:boolean,pasfoto:boolean,ktp:boolean,kartu_keluarga:boolean,npwp:boolean,npwp_siup:boolean,surat_nikah:boolean,aktif_kerja:boolean,skTidakAdaRumah:boolean,domisili:boolean,pph21:boolean,slipGaji:boolean,skPengangkatan:boolean,rekKoran:boolean,jamsostek:boolean
+
+tbl_legalitas
+id_legalitas, id_prospek[foreign key], slf, ppjb, pbb, ajb, sertifikat, pbg
+# npx sequelize-cli model:generate --name Legalitas --attributes id_prospek:integer,slf:boolean,ppjb:boolean,pbb:boolean,ajb:boolean,sertifikat:boolean,pbg:boolean
 
 
+tbl_siteplan
+id_siteplan, id_costumer[foreign key], proyek, cluster, unit, tipe
+# npx sequelize-cli model:generate --name Siteplan --attributes id_costumer:integer,proyek:string,cluster:string,unit:string,tipe:string
+
+
+tbl_reservasi
+id_siteplan, id_prospek[foreign key], nominal_reservasi, keterangan
+# npx sequelize-cli model:generate --name Reservasi --attributes id_prospek:integer,nominal_reservasi:integer,keterangan:string
+
+
+tbl_booking
+
+ 
+tbl_bayar
+id_bayar, id_siteplan[foreign key], harga, jumlah_bayar, sudah_bayar, sisa_bayar, tanggal_bayar, bayar_berikutnya, 
+# npx sequelize-cli model:generate --name Bayar --attributes id_siteplan:integer,harga:integer,jumlah_bayar:integer,sudah_bayar:integer,sisa_bayar:integer,tanggal_bayar:date,bayar_berikutnya:date
+
+
+tbl_kartu_bayar
+id_kartu_bayar, id_bayar[foreign key], id_prospek[foreign key], pelunsan[date], booking[date], total
+# npx sequelize-cli model:generate --name KartuBayar --attributes id_bayar:integer,id_prospek:integer,pelunsan:date,booking:date,total:integer
+
+
+    

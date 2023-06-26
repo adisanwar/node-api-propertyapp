@@ -1,6 +1,8 @@
 GET http://localhost:4000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsIm5hbWUiOiJqb25vIiwiZW1haWwiOiJhQGZhYWEuY29tIiwiaWF0IjoxNjg3NTA4MTM4LCJleHAiOjE2ODc1MDgxNTh9.390CI2RxU2eE4ghcXHc1r_RZSmddRYCltdWTw54wV94
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJhZGEiLCJlbWFpbCI6ImFAMS5jb20iLCJpYXQiOjE2ODc1MzA0NDgsImV4cCI6MTY4NzUzMDQ2OH0.1GHJBXrXahVB_scQaOc6KIkNpFlNxz9t32K2_0CuoSc
 
+###
+GET http://localhost:4000/karyawan
 ###
 
 GET http://localhost:4000/users/1
@@ -35,17 +37,17 @@ Content-Type: application/json
 
 {
     
-    "email" : "a@faaa.com", 
+    "email" : "a@1.com", 
     "password" : "123"
-    
     
    
 }
 
 ###
-
-POST http://localhost:4000/token
+GET http://localhost:4000/token
 
 ###
-
 DELETE http://localhost:4000/users/
+
+###
+DELETE http://localhost:4000/logout

@@ -1,18 +1,21 @@
-import Users from "../models/UserModel.js";
+import Users from "../models/users.js";
 import jwt from "jsonwebtoken";
 
 export const refreshToken = async (req, res) => {
     try {
+        
         const refreshToken = req.cookies.refreshToken;
-        // console.log(refreshToken);
         if (!refreshToken) return res.sendStatus(401);
         const user = await Users.findAll({
             where: {
                 refresh_token: refreshToken
             }
         });
+        
+        console.log('ini adalah 1', user, refreshToken);
         if (!user[0]) return res.sendStatus(403);
-        console.log(refreshToken);
+        
+                
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
             if (err) return res.sendStatus(403);
             const userId = user[0].id;
@@ -25,6 +28,6 @@ export const refreshToken = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        // res.sendStatus(500);
+        res.sendStatus(500);
     }
 };
